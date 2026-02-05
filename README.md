@@ -20,7 +20,7 @@ Compounds designed to treat brain disorders must cross the Blood-Brain Barrier (
 ### 📄 Deep Dive
 For a detailed technical explanation of the architecture, algorithms, and validation case studies (including the Amiodarone test), please read the full research paper:
 
-👉 **[Download the Technical White Paper (PDF)](https://docs.google.com/document/d/1JhDOKCnHVkSEDa-HAw1gDcyhhvO-s3o_gg9KnKBPb5U/edit)**
+👉 **[View the Technical White Paper (PDF)](https://docs.google.com/document/d/1JhDOKCnHVkSEDa-HAw1gDcyhhvO-s3o_gg9KnKBPb5U/edit)**
 
 ---
 
