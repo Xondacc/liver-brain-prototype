@@ -1,3 +1,7 @@
+"""
+NEURO-HEPATO SCREENER - EXACT ORIGINAL INTERFACE
+"""
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -291,6 +295,7 @@ if st.button("Analyze Candidate"):
                 bbb_pred = bbb_model.predict(features)[0]
                 
                 # ============================================================
+                # RESULTS - EXACTLY AS IN SCREENSHOT
                 # ============================================================
                 
                 st.markdown("---")
@@ -307,12 +312,52 @@ if st.button("Analyze Candidate"):
                     """, unsafe_allow_html=True)
                 
                 with col2:
-                    st.markdown("""
-                    <div class="success-box">
-                        <div class="success-title">⭐ High Potential Candidate</div>
-                        <div class="success-text">Optimal balance of safety and permeability.</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    safe_prob = liver_prob[0]       # probability of being SAFE
+                    permeable_prob = bbb_prob[1]    # probability of being BBB+
+
+                    if safe_prob > 0.7 and permeable_prob > 0.7 and cns_mpo >= 4.0:
+                        st.markdown("""
+                        <div class="success-box">
+                            <div class="success-title">⭐ High Potential Candidate</div>
+                            <div class="success-text">Optimal balance of safety and permeability.</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    elif safe_prob < 0.5:
+                        st.markdown("""
+                        <div style="background: linear-gradient(135deg, #7c2d12 0%, #9a3412 100%);
+                                    border-radius: 12px; padding: 1.5rem 2rem;">
+                            <div style="color: #fb923c; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                ⚠️ Caution: Hepatotoxicity Risk
+                            </div>
+                            <div style="color: #fed7aa; font-size: 1rem;">
+                                Potential liver toxicity detected. Consider structural modifications.
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    elif permeable_prob < 0.3:
+                        st.markdown("""
+                        <div style="background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+                                    border-radius: 12px; padding: 1.5rem 2rem;">
+                            <div style="color: #93c5fd; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                🛡️ Low CNS Penetration
+                            </div>
+                            <div style="color: #bfdbfe; font-size: 1rem;">
+                                Compound unlikely to cross the blood-brain barrier.
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    else:
+                        st.markdown("""
+                        <div style="background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+                                    border-radius: 12px; padding: 1.5rem 2rem;">
+                            <div style="color: #d1d5db; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                🔧 Needs Optimization
+                            </div>
+                            <div style="color: #9ca3af; font-size: 1rem;">
+                                Shows some promise but requires further refinement.
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
                 
                 st.markdown("---")
                 
