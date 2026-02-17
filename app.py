@@ -21,7 +21,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# EXACT CSS from Ruth's design
 st.markdown("""
 <style>
     .main {
@@ -45,13 +44,12 @@ st.markdown("""
     }
     
     .cns-label {
-        color: #ffffff !important;
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }
     
     .cns-value {
-        color: #ffffff !important;
+        
         font-size: 4rem;
         font-weight: 700;
         line-height: 1;
@@ -84,13 +82,13 @@ st.markdown("""
     }
     
     .prop-label {
-        color: #ffffff !important;
+        
         font-size: 0.95rem;
         margin-bottom: 0.5rem;
     }
     
     .prop-value {
-        color: #ffffff !important;
+        
         font-size: 3rem;
         font-weight: 700;
         line-height: 1;
@@ -128,7 +126,7 @@ st.markdown("""
     }
     
     .stTextInput label {
-        color: #ffffff !important;
+    
     }
     
     /* Button */
@@ -439,4 +437,5 @@ if st.button("Analyze Candidate"):
                             <div class="pred-title">🛡️ Low Brain Permeability ({conf:.1f}%)</div>
                         </div>
                         """, unsafe_allow_html=True)
+
 
