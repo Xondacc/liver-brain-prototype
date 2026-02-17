@@ -36,10 +36,7 @@ st.markdown("""
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
-    /* Force white text */
-    h1, h2, h3, h4, h5, h6, p, div, span, label {
-        color: #ffffff !important;
-    }
+   
     
     /* CNS Score Box */
     .cns-box {
@@ -442,3 +439,4 @@ if st.button("Analyze Candidate"):
                             <div class="pred-title">🛡️ Low Brain Permeability ({conf:.1f}%)</div>
                         </div>
                         """, unsafe_allow_html=True)
+
